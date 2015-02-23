@@ -14075,14 +14075,11 @@ SMT- SWCH-08247</description>
 <part name="JP6" library="SmartPrj" deviceset="PINHD-1X10_ARD" device="" value="10x1F-H8.5"/>
 <part name="POWER" library="SmartPrj" deviceset="PINHD-1X8" device="" value="8x1F-H8.5"/>
 <part name="SDCARD" library="SmartPrj" deviceset="PINHD-1X8" device="" value="8x1F-H8.5"/>
-<part name="GPS" library="pinhead" deviceset="PINHD-1X9" device="" value="8x1F-H8.5"/>
+<part name="GPS" library="SmartPrj" deviceset="PINHD-1X8" device="" value="8x1F-H8.5"/>
 <part name="SV1" library="con-lstb" deviceset="MA04-1" device="" value="BT"/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="R0603" value="2.2k"/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="R0603" value="1k"/>
 <part name="LCD" library="pinhead" deviceset="PINHD-1X9" device=""/>
-<part name="ON1" library="led" deviceset="LED" device="CHIP-LED0805" value="GREEN"/>
-<part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="RN2" library="resistor-dil" deviceset="4R-N" device="CAY16" value="1k"/>
 </parts>
 <sheets>
 <sheet>
@@ -14184,14 +14181,14 @@ SMT- SWCH-08247</description>
 <text x="30.48" y="-53.34" size="1.778" layer="91">GND</text>
 <text x="30.48" y="-55.88" size="1.778" layer="91">3V</text>
 <text x="30.48" y="-58.42" size="1.778" layer="91">5V</text>
-<text x="96.52" y="-58.42" size="1.778" layer="91">5V</text>
-<text x="96.52" y="-55.88" size="1.778" layer="91">GND</text>
-<text x="96.52" y="-53.34" size="1.778" layer="91">RX</text>
-<text x="96.52" y="-50.8" size="1.778" layer="91">TX</text>
-<text x="96.52" y="-48.26" size="1.778" layer="91">FIX</text>
-<text x="96.52" y="-45.72" size="1.778" layer="91">VBAT</text>
-<text x="96.52" y="-43.18" size="1.778" layer="91">EN</text>
-<text x="96.52" y="-40.64" size="1.778" layer="91">3.3V</text>
+<text x="96.52" y="-40.64" size="1.778" layer="91">5V</text>
+<text x="96.52" y="-43.18" size="1.778" layer="91">GND</text>
+<text x="96.52" y="-45.72" size="1.778" layer="91">RX</text>
+<text x="96.52" y="-48.26" size="1.778" layer="91">TX</text>
+<text x="96.52" y="-50.8" size="1.778" layer="91">FIX</text>
+<text x="96.52" y="-53.34" size="1.778" layer="91">VBAT</text>
+<text x="96.52" y="-55.88" size="1.778" layer="91">EN</text>
+<text x="96.52" y="-58.42" size="1.778" layer="91">3.3V</text>
 <text x="144.78" y="-43.18" size="1.778" layer="91">RX</text>
 <text x="144.78" y="-45.72" size="1.778" layer="91">TX</text>
 <text x="144.78" y="-48.26" size="1.778" layer="91">GND</text>
@@ -14208,7 +14205,6 @@ SMT- SWCH-08247</description>
 <text x="220.98" y="-48.26" size="1.778" layer="91">CS -&gt; Pin 49</text>
 <text x="220.98" y="-45.72" size="1.778" layer="91">SDCS -&gt; Pin 47</text>
 <text x="220.98" y="-43.18" size="1.778" layer="91">RST -&gt; Pin 45</text>
-<text x="96.52" y="-60.96" size="1.778" layer="91">PPS</text>
 </plain>
 <instances>
 <instance part="ICSP" gate="A" x="228.6" y="152.4"/>
@@ -14323,9 +14319,6 @@ SMT- SWCH-08247</description>
 <instance part="R2" gate="G$1" x="139.7" y="-68.58"/>
 <instance part="R3" gate="G$1" x="152.4" y="-76.2" rot="R270"/>
 <instance part="LCD" gate="A" x="203.2" y="-48.26"/>
-<instance part="ON1" gate="G$1" x="198.12" y="134.62" rot="R90"/>
-<instance part="GND3" gate="1" x="208.28" y="134.62" rot="R90"/>
-<instance part="RN2" gate="A" x="187.96" y="134.62"/>
 </instances>
 <busses>
 </busses>
@@ -14426,6 +14419,11 @@ SMT- SWCH-08247</description>
 <label x="5.08" y="-58.42" size="1.778" layer="95"/>
 </segment>
 <segment>
+<pinref part="GPS" gate="A" pin="1"/>
+<wire x1="91.44" y1="-40.64" x2="78.74" y2="-40.64" width="0.1524" layer="91"/>
+<label x="73.66" y="-40.64" size="1.778" layer="95"/>
+</segment>
+<segment>
 <pinref part="SV1" gate="1" pin="4"/>
 <wire x1="134.62" y1="-50.8" x2="127" y2="-50.8" width="0.1524" layer="91"/>
 <label x="121.92" y="-50.8" size="1.778" layer="95"/>
@@ -14434,11 +14432,6 @@ SMT- SWCH-08247</description>
 <pinref part="LCD" gate="A" pin="2"/>
 <wire x1="200.66" y1="-40.64" x2="185.42" y2="-40.64" width="0.1524" layer="91"/>
 <label x="180.34" y="-40.64" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="GPS" gate="A" pin="8"/>
-<wire x1="91.44" y1="-58.42" x2="78.74" y2="-58.42" width="0.1524" layer="91"/>
-<label x="73.66" y="-58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="2">
@@ -14543,6 +14536,11 @@ SMT- SWCH-08247</description>
 <label x="5.08" y="-53.34" size="1.778" layer="95"/>
 </segment>
 <segment>
+<pinref part="GPS" gate="A" pin="2"/>
+<wire x1="91.44" y1="-43.18" x2="78.74" y2="-43.18" width="0.1524" layer="91"/>
+<label x="73.66" y="-43.18" size="1.778" layer="95"/>
+</segment>
+<segment>
 <pinref part="SV1" gate="1" pin="3"/>
 <wire x1="134.62" y1="-48.26" x2="127" y2="-48.26" width="0.1524" layer="91"/>
 <label x="121.92" y="-48.26" size="1.778" layer="95"/>
@@ -14556,16 +14554,6 @@ SMT- SWCH-08247</description>
 <pinref part="LCD" gate="A" pin="1"/>
 <wire x1="200.66" y1="-38.1" x2="185.42" y2="-38.1" width="0.1524" layer="91"/>
 <label x="180.34" y="-38.1" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="205.74" y1="134.62" x2="203.2" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="GND3" gate="1" pin="GND"/>
-<pinref part="ON1" gate="G$1" pin="C"/>
-</segment>
-<segment>
-<pinref part="GPS" gate="A" pin="7"/>
-<wire x1="91.44" y1="-55.88" x2="78.74" y2="-55.88" width="0.1524" layer="91"/>
-<label x="73.66" y="-55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AREF" class="0">
@@ -15040,9 +15028,9 @@ SMT- SWCH-08247</description>
 <pinref part="COMMUNICATION" gate="A" pin="3"/>
 </segment>
 <segment>
-<pinref part="GPS" gate="A" pin="5"/>
-<wire x1="91.44" y1="-50.8" x2="78.74" y2="-50.8" width="0.1524" layer="91"/>
-<label x="73.66" y="-50.8" size="1.778" layer="95"/>
+<pinref part="GPS" gate="A" pin="4"/>
+<wire x1="91.44" y1="-48.26" x2="78.74" y2="-48.26" width="0.1524" layer="91"/>
+<label x="73.66" y="-48.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TXD1" class="0">
@@ -15053,9 +15041,9 @@ SMT- SWCH-08247</description>
 <pinref part="COMMUNICATION" gate="A" pin="4"/>
 </segment>
 <segment>
-<pinref part="GPS" gate="A" pin="6"/>
-<wire x1="91.44" y1="-53.34" x2="78.74" y2="-53.34" width="0.1524" layer="91"/>
-<label x="73.66" y="-53.34" size="1.778" layer="95"/>
+<pinref part="GPS" gate="A" pin="3"/>
+<wire x1="91.44" y1="-45.72" x2="78.74" y2="-45.72" width="0.1524" layer="91"/>
+<label x="73.66" y="-45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RXD2" class="0">
@@ -15515,10 +15503,6 @@ SMT- SWCH-08247</description>
 <wire x1="121.92" y1="114.3" x2="152.4" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="1" pin="(OC0A/OC1C/PCINT7)PB7"/>
 <label x="124.46" y="114.935" size="1.6764" layer="95"/>
-<wire x1="152.4" y1="134.62" x2="182.88" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="A" pin="1"/>
-<wire x1="152.4" y1="114.3" x2="152.4" y2="134.62" width="0.1524" layer="91"/>
-<junction x="152.4" y="114.3"/>
 </segment>
 </net>
 <net name="CD" class="0">
@@ -15526,6 +15510,30 @@ SMT- SWCH-08247</description>
 <pinref part="SDCARD" gate="A" pin="1"/>
 <wire x1="25.4" y1="-40.64" x2="10.16" y2="-40.64" width="0.1524" layer="91"/>
 <label x="5.08" y="-40.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="GPS" gate="A" pin="5"/>
+<wire x1="91.44" y1="-50.8" x2="78.74" y2="-50.8" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="GPS" gate="A" pin="6"/>
+<wire x1="91.44" y1="-53.34" x2="78.74" y2="-53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="GPS" gate="A" pin="7"/>
+<wire x1="91.44" y1="-55.88" x2="78.74" y2="-55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="GPS" gate="A" pin="8"/>
+<wire x1="91.44" y1="-58.42" x2="78.74" y2="-58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RX_BT" class="0">
@@ -15548,13 +15556,6 @@ SMT- SWCH-08247</description>
 <segment>
 <pinref part="LCD" gate="A" pin="9"/>
 <wire x1="200.66" y1="-58.42" x2="185.42" y2="-58.42" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<wire x1="195.58" y1="134.62" x2="193.04" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="ON1" gate="G$1" pin="A"/>
-<pinref part="RN2" gate="A" pin="2"/>
 </segment>
 </net>
 </nets>
